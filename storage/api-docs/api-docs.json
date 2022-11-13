@@ -1,0 +1,293 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Servicio Rest Prueba Practica",
+        "version": "0.1"
+    },
+    "paths": {
+        "/api/login": {
+            "post": {
+                "tags": [
+                    "Autentificación"
+                ],
+                "summary": "Metodo que tiene como funcionalidad autentificacerse en el sistema",
+                "description": "Retorna datos de autentificacion validos",
+                "operationId": "getProjectById",
+                "parameters": [
+                    {
+                        "name": "username",
+                        "in": "query",
+                        "description": "Usuario de pruebas registrado",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "description": "Contraseña de prueba",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/logout": {
+            "post": {
+                "tags": [
+                    "Autentificación"
+                ],
+                "summary": "Metodo disponible para cerrar sesion dentro de la api",
+                "operationId": "fe8f3429cd6979b3b4517e186505f9f9",
+                "responses": {
+                    "200": {
+                        "description": " sesion cerrada"
+                    },
+                    "500": {
+                        "description": "Ha ocurrido un error"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/index": {
+            "get": {
+                "tags": [
+                    "Crud"
+                ],
+                "summary": "Metodo que tiene como funcionalidad visualizar toda la data de codigo de pais registrada en base de datos",
+                "description": "Metodo que tiene como funcionalidad visualizar toda la data de codigo de pais registrada en base de datos",
+                "operationId": "dd744ea5ebfb901e71698b97996275a3",
+                "responses": {
+                    "default": {
+                        "description": "Welcome page",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/store": {
+            "post": {
+                "tags": [
+                    "Crud"
+                ],
+                "summary": "Metodo que tiene como funcionalidad Registrar un codigo de un pais",
+                "description": "Metodo que tiene como funcionalidad Registrar un codigo de un pais",
+                "operationId": "9360ba64cfe5a0f0b4d0adc61f288415",
+                "parameters": [
+                    {
+                        "name": "country",
+                        "in": "query",
+                        "description": "digite pais a insertar",
+                        "schema": {
+                            "type": "String"
+                        }
+                    },
+                    {
+                        "name": "code",
+                        "in": "query",
+                        "description": "digite codigo pais a insertar",
+                        "schema": {
+                            "type": "String"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Welcome page",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/show/{id}": {
+            "get": {
+                "tags": [
+                    "Crud"
+                ],
+                "summary": "Metodo que tiene como funcionalidad visualizar una  codigo telefonico especifico",
+                "description": "Este metodo retorna una de  los codigos telefonicos y pais  registradas en base de datos",
+                "operationId": "cc45fbce49da937e96479ecebc112b17",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Digite el id del pais",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Mostrar el codigo del pais con el id digitado"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/update/{id}": {
+            "put": {
+                "tags": [
+                    "Crud"
+                ],
+                "summary": "Metodo que tiene como funcionalidad actualizar informacion de codigo de pais dentro del sistema",
+                "description": "Metodo que tiene como funcionalidad actualizar informacion de codigo de pais dentro del sistema",
+                "operationId": "e1d1e15392fe7d6326bda6c0b666de5f",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Digite el id del pais a actualizar",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "country",
+                        "in": "query",
+                        "description": "Nuevo nombre pais",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "code",
+                        "in": "query",
+                        "description": "nuevo codigo pais",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Actualizar indformacion pais"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/destroy/{id}": {
+            "delete": {
+                "tags": [
+                    "Crud"
+                ],
+                "summary": "Metodo que tiene como funcionalidad eliminar un codigo telefonico especifico",
+                "description": "Metodo que tiene como funcionalidad eliminar un codigo telefonico especifico",
+                "operationId": "71145aceba001e349f57ad954b09b8eb",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Digite el id del pais a eliminar",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Eliminar el codigo del pais con el id digitado"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "apiAuth": {
+                "type": "http",
+                "description": "Login with email and password to get the authentication token",
+                "name": "Token based Based",
+                "in": "header",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    }
+}
