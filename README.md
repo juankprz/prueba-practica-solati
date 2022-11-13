@@ -16,7 +16,7 @@ https://nodejs.org/es/
 Para empezar se debe  clonar  el proyecto desde el repositorio de codigo  Asi 
 
 ```
-git clone https://github.com/juankprz/prueba-backend-likeu.git
+git clone https://github.com/juankprz/prueba-practica-solati.git
 ```
 Luego acceder al directorio donde se descargo el proyecto, luego instalar las dependencias  Asi: 
 
